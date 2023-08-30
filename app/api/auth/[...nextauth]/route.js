@@ -1,6 +1,5 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import bcrypt from 'bcrypt';
-import { NextResponse } from 'next/server';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/prisma/prismadb';
@@ -36,7 +35,7 @@ export const OPTIONS = {
             status: 400,
           });
         }
-        return user;
+        return { id: user.id, email: user.email, name: user.name };
       },
     }),
   ],
@@ -44,6 +43,21 @@ export const OPTIONS = {
 
   session: {
     strategy: 'jwt',
+  },
+  pages: {
+    signIn: '/admin/login',
+  },
+  callbacks: {
+    jwt: async ({ user, token }) => {
+      if (user) {
+        token.uid = user.id;
+      }
+      return token;
+    },
+    session: async ({ session, token }) => {
+      if (session?.user) session.user.id = token.uid;
+      return session;
+    },
   },
   debug: process.env.NODE_ENV === 'development',
 };

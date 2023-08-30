@@ -2,7 +2,7 @@ import { currentUser } from '@/actions/getCurrentUser';
 
 const AdminPage = async () => {
   const user = await currentUser();
-  console.log(user)
+  console.log(user?.id,"😍")
   return (
     <div className="flex">
       <div>khaled</div>

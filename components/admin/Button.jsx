@@ -1,6 +1,7 @@
-const Button = ({ variant, label, disabled }) => {
+const Button = ({ variant, label, disabled, onClick }) => {
   return (
     <button
+      onClick={onClick}
       disabled={disabled}
       className={`py-2 px-4 rounded-lg border-2 duration-300 disabled:cursor-not-allowed ${
         variant === 'primary' &&
@@ -10,7 +11,7 @@ const Button = ({ variant, label, disabled }) => {
         'hover:bg-rose-700 border-neutral-400 active:border-white bg-rose-700/80 text-white'
       } ${
         variant === 'outline' &&
-        'hover:bg-neutral-100/80 border-neutral-400 active:border-white bg-neutral-200 text-black'
+        'hover:bg-neutral-100/80 border-neutral-400 active:border-white bg-transparent hover:text-black'
       }`}>
       {label}
     </button>
