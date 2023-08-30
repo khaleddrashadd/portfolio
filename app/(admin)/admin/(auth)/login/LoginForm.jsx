@@ -17,14 +17,15 @@ const LoginForm = () => {
       email,
       password,
       redirect: false,
+      callbackUrl: '/admin',
     });
     if (res.error) return toast.error(res.error || 'Something went wrong');
     toast.success('Signed-In successfully');
     router.replace('/admin');
   };
   return (
-    <div className="flex mt-20 justify-center items-center overflow-y-auto overflow-x-hidden">
-      <div className="w-full md:w-4/6 lg:3/6 xl:w-2/5 bg-[#28292e] rounded-xl">
+    <div className="flex mt-20 justify-center items-center overflow-y-auto overflow-x-hidden w-full">
+      <div className="w-full md:w-4/6 lg:3/6 xl:w-2/5 bg-[#28292e] rounded-xl flex-1">
         <form
           className="flex flex-col items-center justify-center gap-10 py-8 mt-8"
           onSubmit={handleSubmit}>
