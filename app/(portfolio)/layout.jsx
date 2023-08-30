@@ -1,5 +1,5 @@
 import { Jost } from 'next/font/google';
-import './globals.css';
+import '@/app/globals.css';
 import { Animate, Navbar } from '@/components/portfolio';
 
 const jost = Jost({ subsets: ['latin'] });
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={jost.className}>
         {/* <Animate> */}
           <div className="max-w-7xl mx-auto flex w-screen min-h-screen flex-col items-center justify-center relative bg-primary pb-20">
-            {/* <Navbar /> */}
+            <Navbar />
             {children}
           </div>
         {/* </Animate> */}

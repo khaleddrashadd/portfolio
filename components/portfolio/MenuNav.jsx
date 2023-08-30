@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { IoMenu } from 'react-icons/io5';
 import { routes } from '@/data/portfolio/routes';
-import { navbarMenuVariant } from '@/libs/framer-motion/variants';
+import { navbarMenuVariant } from '@/lib/framer-motion/variants';
 
 const MenuNav = () => {
   const [isActive, setIsActive] = useState(false);
