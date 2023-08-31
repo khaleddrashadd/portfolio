@@ -39,7 +39,7 @@ const LoginForm = () => {
             id="password"
             type="password"
             label="Password"
-            className="font-extrabold text-xl"
+            className="text-neutral-700"
           />
           <Button
             variant="primary"
