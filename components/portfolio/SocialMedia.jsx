@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import {
   IoLogoGithub,
-  IoLogoYoutube,
   IoLogoTwitter,
   IoLogoLinkedin,
   IoLogoWhatsapp,
@@ -17,39 +16,31 @@ const SocialMedia = ({social}) => {
         <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
       ),
       name: 'GitHub',
-      link: '#',
+      link: social.github,
     },
     {
-      id: 1,
-      iconSrc: (
-        <IoLogoYoutube className="text-red-500 text-3xl cursor-pointer" />
-      ),
-      name: 'YouTube',
-      link: '#',
-    },
-    {
-      id: 1,
+      id: 2,
       iconSrc: (
         <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
       ),
       name: 'Twitter',
-      link: '#',
+      link: social.x,
     },
     {
-      id: 1,
+      id: 3,
       iconSrc: (
         <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
       ),
       name: 'LinkedIn',
-      link: '#',
+      link: social.linkedin,
     },
     {
-      id: 1,
+      id: 4,
       iconSrc: (
         <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
       ),
       name: 'Whatsapp',
-      link: '#',
+      link:`tel:${social.whatsapp}`,
     },
   ];
 
@@ -64,6 +55,7 @@ const SocialMedia = ({social}) => {
             whileTap={{ scale: 0.8 }}
             href={item.link}
             key={item.id}
+            target='_blank'
             className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3">
             {item.iconSrc}
             <p className="text-lg text-textBase">{item.name}</p>

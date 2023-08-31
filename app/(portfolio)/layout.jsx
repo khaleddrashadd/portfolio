@@ -13,11 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jost.className}>
-        {/* <Animate> */}
+        <Animate>
           <div className="max-w-7xl mx-auto flex w-screen min-h-screen flex-col items-center justify-center relative bg-primary pb-20">
             {children}
           </div>
-        {/* </Animate> */}
+        </Animate>
       </body>
     </html>
   );
