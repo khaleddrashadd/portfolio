@@ -39,7 +39,6 @@ const RegisterForm = () => {
             type="text"
             label="Name"
             className="text-neutral-700"
-            disabled
           />
           <Input
             name="email"
@@ -47,7 +46,6 @@ const RegisterForm = () => {
             type="text"
             label="Email"
             className="text-neutral-700"
-            disabled
           />
           <Input
             name="password"
@@ -55,12 +53,10 @@ const RegisterForm = () => {
             type="password"
             label="Password"
             className="font-extrabold text-xl"
-            disabled
           />
           <Button
             variant="primary"
             label="Submit"
-            disabled
           />
         </form>
       </div>

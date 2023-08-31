@@ -24,6 +24,18 @@ export async function POST(req) {
     });
   }
 
+  const user = await prisma.user.findMany({
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+  
+  if (user.length > 0) {
+    return NextResponse.json('Admin (Khaled) already exists', {
+      status: 400,
+    });
+  }
+
   try {
     const user = await prisma.user.create({
       data: {
