@@ -5,7 +5,6 @@ import {
   Navbar,
   Projects,
   SocialMedia,
-  SplineModel,
 } from '@/components/portfolio';
 
 const HomePage = async () => {
@@ -29,7 +28,6 @@ const HomePage = async () => {
         cv={userData?.cv}
         name={userData?.name}
       />
-      {/* <SplineModel /> */}
       <main className="w-[80%] mt-4">
         <Bio data={bioData} />
         <Experience skills={userData?.skills} />

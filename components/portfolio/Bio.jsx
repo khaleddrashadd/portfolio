@@ -10,7 +10,8 @@ const Bio = ({ data }) => {
           <Image
             src={data?.img}
             alt="personal image"
-            fill
+            width={275}
+            height={340}
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl"
