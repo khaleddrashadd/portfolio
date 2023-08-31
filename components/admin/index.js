@@ -5,6 +5,8 @@ import Content from './Content';
 import Heading from './Heading';
 import Input from './Input';
 import LogoutButton from './LogoutButton';
+import MainNav from './MainNav';
+import MenuNav from './MenuNav';
 import Navbar from './Navbar';
 import Projects from './Projects';
 import ProjectsForm from './ProjectsForm';
@@ -32,4 +34,6 @@ export {
   Content,
   SocialInput,
   SocialForm,
+  MainNav,
+  MenuNav,
 };

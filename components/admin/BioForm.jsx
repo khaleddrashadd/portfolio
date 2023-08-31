@@ -64,13 +64,13 @@ const BioForm = () => {
             name="bio"
             defaultValue={bioData?.bio}
           />
-          <Input
-            label="CV"
-            type="file"
-            name="cv"
-            accept="application/pdf"
-            onChange={onChangeCv}
-          />
+            <Input
+              label="CV"
+              type="file"
+              name="cv"
+              accept="application/pdf"
+              onChange={onChangeCv}
+            />
 
           <Input
             type="file"

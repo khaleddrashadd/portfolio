@@ -45,7 +45,7 @@ const SocialForm = () => {
   return (
     <div className="grid grid-cols-6 gap-4">
       <div className="col-span-4">
-        <Heading title="User" />
+        <Heading title="Social Media" />
         <form
           className="flex flex-col gap-8"
           onSubmit={handleSubmit}>

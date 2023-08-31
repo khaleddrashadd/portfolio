@@ -17,7 +17,7 @@ export default async function AdminLayout({ children }) {
   return (
     <html lang="en">
       <body className={jost.className}>
-        <div className="max-w-7xl mx-auto md:w-880 ">
+        <div className="max-w-7xl mx-auto md:w-880 p-4">
           <Navbar user={user} />
           <section className="h-full">
             {children}
