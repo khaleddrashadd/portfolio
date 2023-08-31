@@ -29,6 +29,12 @@ const Navbar = ({ user }) => {
               }`}>
               <Link href="/admin/projects">Projects</Link>
             </li>
+            <li
+              className={`hover:text-white transition cursor-pointer ${
+                pathname === '/admin/social' && 'text-white'
+              }`}>
+              <Link href="/admin/social">Social Media</Link>
+            </li>
             {!user ? (
               <>
                 <li

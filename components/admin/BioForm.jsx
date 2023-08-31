@@ -10,7 +10,7 @@ const BioForm = () => {
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const { data: bioData, mutate } = useSWR('api/bio', fetcher);
+  const { data: bioData, mutate } = useSWR('/api/bio', fetcher);
 
   const onChange = (e) => {
     const file = e.target.files[0];

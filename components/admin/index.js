@@ -12,6 +12,8 @@ import ProjectsInput from './ProjectsInput';
 import Skills from './Skills';
 import SkillsForm from './SkillsForm';
 import SkillsInput from './SkillsInput';
+import SocialForm from './SocialForm';
+import SocialInput from './SocialInput';
 
 export {
   Navbar,
@@ -28,4 +30,6 @@ export {
   Projects,
   Skills,
   Content,
+  SocialInput,
+  SocialForm,
 };
