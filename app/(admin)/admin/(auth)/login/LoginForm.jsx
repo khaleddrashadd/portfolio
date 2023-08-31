@@ -1,11 +1,9 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import { Button, Input } from '@/components/admin';
 
 const LoginForm = () => {
-  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = e.target.elements;
@@ -21,7 +19,7 @@ const LoginForm = () => {
     });
     if (res.error) return toast.error(res.error || 'Something went wrong');
     toast.success('Signed-In successfully');
-    router.replace('/admin');
+    window.location.replace('/admin');
   };
   return (
     <div className="flex mt-20 justify-center items-center overflow-y-auto overflow-x-hidden w-full">

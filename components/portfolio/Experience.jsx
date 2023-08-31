@@ -1,11 +1,11 @@
 'use client';
 //from server
 import 'react-vertical-timeline-component/style.min.css';
-import { IoCodeWorking } from 'react-icons/io5';
-import { FaReact } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import { AiFillHtml5 } from 'react-icons/ai';
 import { BiLogoCss3, BiLogoVuejs, BiLogoJavascript } from 'react-icons/bi';
+import { FaReact } from 'react-icons/fa';
+import { IoCodeWorking } from 'react-icons/io5';
+import { SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import {
   VerticalTimeline,
   VerticalTimelineElement,

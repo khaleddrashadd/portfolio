@@ -18,6 +18,18 @@ const Navbar = ({ user }) => {
               }`}>
               <Link href="/admin">Home</Link>
             </li>
+            <li
+              className={`hover:text-white transition cursor-pointer ${
+                pathname === '/admin/skills' && 'text-white'
+              }`}>
+              <Link href="/admin/skills">Skills</Link>
+            </li>
+            <li
+              className={`hover:text-white transition cursor-pointer ${
+                pathname === '/admin/projects' && 'text-white'
+              }`}>
+              <Link href="/admin/projects">Projects</Link>
+            </li>
             {!user ? (
               <>
                 <li
