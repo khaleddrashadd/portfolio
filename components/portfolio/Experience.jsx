@@ -11,7 +11,7 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 
-const Experience = () => {
+const Experience = ({skills}) => {
   const experience = [
     {
       id: 1,
@@ -89,7 +89,7 @@ const Experience = () => {
   return (
     <section className="w-full flex items-center justify-center">
       <VerticalTimeline>
-        {experience?.map((item) => (
+        {skills?.map((item) => (
           <VerticalTimelineElement
             key={item.id}
             className="react-vertical-timeline-component"

@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { IoLogoGithub } from 'react-icons/io';
 import Khaled from '@/public/khaled.jpg';
 
-const Projects = () => {
-  const projects = [
+const Projects = ({ projects }) => {
+  const project = [
     {
       id: 1,
       name: 'Food Delivery UI Mockup',
@@ -59,27 +60,30 @@ const Projects = () => {
         <motion.div
           key={item.id}
           className="border flex flex-col gap-4 border-zinc-800 rounded-md p-2 hover:border-zinc-600 duration-100 ease-in-out">
+    <Link href={item.url}>
           <p className="text-lg text-textBase font-medium uppercase">
             {item.name.length > 25 ? `${item.name.slice(0, 25)}...` : item.name}
           </p>
-          <div className="w-full h-full object-cover rounded-md my-4">
+          <div className="w-full relative aspect-square object-cover rounded-md my-4">
             <Image
-              src={item.imageSrc}
+              src={item?.imgUrl}
               alt="project image"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fill
+              // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className="flex flex-1 items-center justify-between">
             <p className="text-lg text-gray-300">
               Technologies
-              <span className="block text-sm text-gray-500">{item.techs}</span>
+              <span className="block text-sm text-gray-500">
+                {item.description}
+              </span>
             </p>
-            <a href={item.github}>
               <motion.div whileTap={{ scale: 0.5 }}>
                 <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
               </motion.div>
-            </a>
           </div>
+            </Link>
         </motion.div>
       ))}
     </section>

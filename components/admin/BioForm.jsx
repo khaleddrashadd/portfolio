@@ -7,12 +7,13 @@ import { Button, Heading, Input } from '.';
 
 const BioForm = () => {
   const [imgUrl, setImgUrl] = useState('');
+  const [cvUrl, setCvUrl] = useState('');
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data: bioData, mutate } = useSWR('/api/bio', fetcher);
 
-  const onChange = (e) => {
+  const onChangeImage = (e) => {
     const file = e.target.files[0];
 
     const reader = new FileReader();
@@ -21,9 +22,14 @@ const BioForm = () => {
     };
     reader.readAsDataURL(file);
   };
+  const onChangeCv = (e) => {
+    const file = e.target.files[0];
 
-  const onRemove = () => {
-    setImgUrl('');
+    const reader = new FileReader();
+    reader.onloadend = (e) => {
+      setCvUrl(e.target.result);
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = async (e) => {
@@ -36,7 +42,7 @@ const BioForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ bio, cv, imgUrl }),
+      body: JSON.stringify({ bio, cv: cvUrl, imgUrl }),
     });
     if (!res.ok) return toast.error('Something went wrong');
     toast.success('Bio updated successfully');
@@ -59,29 +65,29 @@ const BioForm = () => {
             defaultValue={bioData?.bio}
           />
           <Input
-            label="CV Url"
-            type="url"
-            className="text-gray-900"
+            label="CV"
+            type="file"
             name="cv"
-            defaultValue={bioData?.cv}
+            accept="application/pdf"
+            onChange={onChangeCv}
           />
 
           <Input
             type="file"
-            onChange={onChange}
+            onChange={onChangeImage}
             accept="image/*"
             name="image"
           />
 
           <Button
             variant="primary"
-            label="Submit"
+            label={bioData ? 'Update' : 'Add'}
           />
         </form>
       </div>
       <div className="col-span-2 object-bottom mt-auto flex flex-col gap-4">
         <div className="w-full relative rounded-md overflow-hidden aspect-square">
-          {(imgUrl||bioData?.imgUrl) && (
+          {(imgUrl || bioData?.imgUrl) && (
             <Image
               src={imgUrl || bioData?.imgUrl}
               alt="personal photo"
@@ -94,7 +100,7 @@ const BioForm = () => {
           <Button
             label="Delete"
             variant="danger"
-            onClick={onRemove}
+            onClick={() => setImgUrl('')}
           />
         )}
       </div>

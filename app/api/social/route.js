@@ -4,14 +4,8 @@ import { prisma } from '@/lib/prisma/prismadb';
 
 export async function POST(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x } = body;
+  const { linkedin, facebook, github, x, whatsapp } = body;
 
-  if (!x || !linkedin || !facebook || !github) {
-    return NextResponse.json(
-      { error: 'You must fill out all fields' },
-      { status: 400 }
-    );
-  }
   const user = await currentUser();
   if (!user) {
     return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
@@ -28,17 +22,16 @@ export async function POST(req) {
   return NextResponse.json(social);
 }
 
-
-
 export async function PATCH(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x } = body;
+  const { linkedin, facebook, github, x, whatsapp } = body;
 
   let query = {};
   if (linkedin) query.linkedin = linkedin;
   if (facebook) query.facebook = facebook;
   if (github) query.github = github;
   if (x) query.x = x;
+  if (whatsapp) query.whatsapp = whatsapp;
 
   const user = await currentUser();
   if (!user) {
@@ -53,9 +46,6 @@ export async function PATCH(req) {
   });
   return NextResponse.json(updatedSocial);
 }
-
-
-
 
 export async function GET() {
   const user = await currentUser();

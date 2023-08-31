@@ -9,7 +9,7 @@ import {
   IoLogoWhatsapp,
 } from 'react-icons/io';
 
-const SocialMedia = () => {
+const SocialMedia = ({social}) => {
   const socialLinks = [
     {
       id: 1,
