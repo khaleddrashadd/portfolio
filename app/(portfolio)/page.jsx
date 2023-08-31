@@ -29,7 +29,7 @@ const HomePage = async () => {
         cv={userData?.cv}
         name={userData?.name}
       />
-      <SplineModel />
+      {/* <SplineModel /> */}
       <main className="w-[80%] mt-4">
         <Bio data={bioData} />
         <Experience skills={userData?.skills} />
