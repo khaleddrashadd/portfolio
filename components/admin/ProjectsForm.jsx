@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Button, Heading, Input } from '.';
 
-const ProjectsForm = ({ value }) => {
+const ProjectsForm = ({ data: formData }) => {
   const router = useRouter();
 
   const [imgUrl, setImgUrl] = useState('');
@@ -30,15 +30,29 @@ const ProjectsForm = ({ value }) => {
     const name = data.name.value;
     const description = data.description.value;
     const url = data.url.value;
-    const res = await fetch('/api/projects', {
-      method: 'POST',
+    if (!formData) {
+      const res = await fetch('/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, description, url, imgUrl }),
+      });
+      if (!res.ok) return toast.error('Something went wrong');
+      toast.success('Project Created successfully');
+      router.refresh();
+      return;
+    }
+
+    const res = await fetch(`/api/projects/${formData?.id}`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, description, url, imgUrl }),
     });
     if (!res.ok) return toast.error('Something went wrong');
-    toast.success('Project Created successfully');
+    toast.success('Project Updated successfully');
     router.refresh();
   };
 
@@ -55,21 +69,21 @@ const ProjectsForm = ({ value }) => {
             cols="10"
             placeholder="Description"
             name="description"
-            defaultValue={value?.description}
+            defaultValue={formData?.description || ''}
           />
           <Input
             label="Project Name"
             type="text"
             className="text-gray-900"
             name="name"
-            defaultValue={value?.name}
+            defaultValue={formData?.name || ''}
           />
           <Input
             label="Project Url"
             type="url"
             className="text-gray-900"
             name="url"
-            defaultValue={value?.url}
+            defaultValue={formData?.url || ''}
           />
 
           <Input
@@ -77,20 +91,19 @@ const ProjectsForm = ({ value }) => {
             onChange={onChange}
             accept="image/*"
             name="image"
-            defaultValue={value?.imgUrl}
           />
 
           <Button
             variant="primary"
-            label="Submit"
+            label={formData ? 'Update' : 'Create'}
           />
         </form>
       </div>
       <div className="col-span-2 object-bottom mt-auto flex flex-col gap-4">
         <div className="w-full relative rounded-md overflow-hidden aspect-square">
-          {(imgUrl || value?.imgUrl) && (
+          {(imgUrl || formData?.imgUrl) && (
             <Image
-              src={imgUrl || value?.imgUrl}
+              src={imgUrl || formData?.imgUrl}
               alt="personal photo"
               fill
               className="rounded-md"

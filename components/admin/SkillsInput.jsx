@@ -1,9 +1,9 @@
 import { Card, SkillsForm } from '.';
 
-const SkillsInput = () => {
+const SkillsInput = ({data}) => {
   return (
     <Card>
-      <SkillsForm />
+      <SkillsForm data={data} />
     </Card>
   );
 };

@@ -71,7 +71,6 @@ const BioForm = () => {
             onChange={onChange}
             accept="image/*"
             name="image"
-            defaultValue={bioData?.imgUrl}
           />
 
           <Button

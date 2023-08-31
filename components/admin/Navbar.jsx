@@ -5,7 +5,6 @@ import { LogoutButton } from '.';
 
 const Navbar = ({ user }) => {
   const pathname = usePathname();
-  console.log(user);
 
   return (
     <header>
