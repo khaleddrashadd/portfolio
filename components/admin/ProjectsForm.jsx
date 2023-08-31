@@ -85,13 +85,20 @@ const ProjectsForm = ({ data: formData }) => {
             name="url"
             defaultValue={formData?.url || ''}
           />
-
-          <Input
-            type="file"
-            onChange={onChange}
-            accept="image/*"
-            name="image"
-          />
+          <div className="flex flex-col gap-4">
+            <label
+              htmlFor="project"
+              className="font-semibold text-white">
+              Project Image
+            </label>
+            <Input
+              type="file"
+              onChange={onChange}
+              accept="image/*"
+              name="image"
+              id="project"
+            />
+          </div>
 
           <Button
             variant="primary"

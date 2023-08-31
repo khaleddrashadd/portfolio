@@ -64,20 +64,36 @@ const BioForm = () => {
             name="bio"
             defaultValue={bioData?.bio}
           />
+          <div className="flex flex-col gap-4">
+            <label
+              htmlFor="cv"
+              className="text-white font-semibold">
+              CV
+            </label>
             <Input
               label="CV"
               type="file"
               name="cv"
+              id="cv"
               accept="application/pdf"
               onChange={onChangeCv}
             />
+          </div>
+          <div className="flex flex-col gap-4">
+            <label
+              htmlFor="image"
+              className="text-white font-semibold">
+              Image
+            </label>
 
-          <Input
-            type="file"
-            onChange={onChangeImage}
-            accept="image/*"
-            name="image"
-          />
+            <Input
+              type="file"
+              onChange={onChangeImage}
+              accept="image/*"
+              name="image"
+              id="image"
+            />
+          </div>
 
           <Button
             variant="primary"
