@@ -13,7 +13,7 @@ const MainNav = ({cv}) => {
         </Link>
       ))}
       <Link
-        href={cv}
+        href={cv||''}
         download="Example-PDF-document"
         target="_blank"
         rel="noreferrer"

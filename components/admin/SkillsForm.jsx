@@ -24,6 +24,7 @@ const SkillsForm = ({ data: formData }) => {
       if (!res.ok) return toast.error('Something went wrong');
       toast.success('Skill created successfully');
       router.refresh();
+      router.push('/admin/skills');
       return;
     }
 
@@ -37,6 +38,7 @@ const SkillsForm = ({ data: formData }) => {
     if (!res.ok) return toast.error('Something went wrong');
     toast.success('Skill Updated successfully');
     router.refresh();
+    router.push('/admin/skills');
   };
 
   return (

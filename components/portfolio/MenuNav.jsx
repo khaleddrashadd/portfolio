@@ -7,7 +7,7 @@ import { IoMenu } from 'react-icons/io5';
 import { routes } from '@/data/portfolio/routes';
 import { navbarMenuVariant } from '@/lib/framer-motion/variants';
 
-const MenuNav = ({ cv }) => {
+const MenuNav = ({cv}) => {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
@@ -34,7 +34,7 @@ const MenuNav = ({ cv }) => {
             </Link>
           ))}
           <Link
-            href={cv}
+            href={cv ||''}
             download="Example-PDF-document"
             target="_blank"
             rel="noreferrer"

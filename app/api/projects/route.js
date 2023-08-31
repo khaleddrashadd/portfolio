@@ -32,9 +32,6 @@ export async function POST(req) {
 
 export async function GET() {
     const user = await currentUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
-    }
 
   const projects = await prisma.project.findMany({
     orderBy: {

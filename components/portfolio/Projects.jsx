@@ -4,14 +4,18 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoLogoGithub } from 'react-icons/io';
-import Khaled from '@/public/khaled.jpg';
+import useSWR from 'swr';
 
-const Projects = ({ projects }) => {
+const Projects = () => {
+    const fetcher = (url) =>
+      fetch(url, { cache: 'no-store' }).then((res) => res.json());
+    const { data } = useSWR('/api/projects', fetcher);
+
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-24"
       id="projects">
-      {projects?.map((item) => (
+      {data?.map((item) => (
         <motion.div
           key={item.id}
           className="border flex flex-col gap-4 border-zinc-800 rounded-md p-2 hover:border-zinc-600 duration-100 ease-in-out">

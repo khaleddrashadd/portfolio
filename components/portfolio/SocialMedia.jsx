@@ -7,8 +7,13 @@ import {
   IoLogoLinkedin,
   IoLogoWhatsapp,
 } from 'react-icons/io';
+import useSWR from 'swr';
 
-const SocialMedia = ({social}) => {
+const SocialMedia = () => {
+  const fetcher = (url) =>
+    fetch(url, { cache: 'no-store' }).then((res) => res.json());
+  const { data } = useSWR('/api/social', fetcher);
+
   const socialLinks = [
     {
       id: 1,
@@ -16,7 +21,7 @@ const SocialMedia = ({social}) => {
         <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
       ),
       name: 'GitHub',
-      link: social.github,
+      link: data?.github || '',
     },
     {
       id: 2,
@@ -24,7 +29,7 @@ const SocialMedia = ({social}) => {
         <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
       ),
       name: 'Twitter',
-      link: social.x,
+      link: data?.x || '',
     },
     {
       id: 3,
@@ -32,7 +37,7 @@ const SocialMedia = ({social}) => {
         <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
       ),
       name: 'LinkedIn',
-      link: social.linkedin,
+      link: data?.linkedin || '',
     },
     {
       id: 4,
@@ -40,7 +45,7 @@ const SocialMedia = ({social}) => {
         <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
       ),
       name: 'Whatsapp',
-      link:`tel:${social.whatsapp}`,
+      link: `tel:${data?.whatsapp}` || '',
     },
   ];
 
@@ -55,7 +60,7 @@ const SocialMedia = ({social}) => {
             whileTap={{ scale: 0.8 }}
             href={item.link}
             key={item.id}
-            target='_blank'
+            target="_blank"
             className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3">
             {item.iconSrc}
             <p className="text-lg text-textBase">{item.name}</p>

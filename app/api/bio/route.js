@@ -27,9 +27,6 @@ export async function POST(req) {
 
 export async function GET() {
   const user = await currentUser();
-  if (!user) {
-    return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
-  }
   const userData = await prisma.user.findUnique({
     where: {
       id: user.id,
@@ -38,6 +35,8 @@ export async function GET() {
       bio: true,
       cv: true,
       imgUrl: true,
+      name: true,
+      email:true,
     },
   });
   return NextResponse.json(userData);

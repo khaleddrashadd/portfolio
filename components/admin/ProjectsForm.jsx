@@ -41,6 +41,8 @@ const ProjectsForm = ({ data: formData }) => {
       if (!res.ok) return toast.error('Something went wrong');
       toast.success('Project Created successfully');
       router.refresh();
+      router.push('/admin/projects');
+
       return;
     }
 
@@ -54,6 +56,7 @@ const ProjectsForm = ({ data: formData }) => {
     if (!res.ok) return toast.error('Something went wrong');
     toast.success('Project Updated successfully');
     router.refresh();
+    router.push('/admin/projects');
   };
 
   return (

@@ -49,9 +49,6 @@ export async function PATCH(req) {
 
 export async function GET() {
   const user = await currentUser();
-  if (!user) {
-    return NextResponse.json({ error: 'Not logged in' }, { status: 401 });
-  }
   const social = await prisma.socialMedia.findUnique({
     where: {
       userId: user.id,

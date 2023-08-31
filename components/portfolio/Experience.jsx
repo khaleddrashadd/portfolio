@@ -1,6 +1,6 @@
 'use client';
-//from server
 import 'react-vertical-timeline-component/style.min.css';
+// import { useEffect } from 'react';
 import { AiFillHtml5 } from 'react-icons/ai';
 import { BiLogoCss3, BiLogoVuejs, BiLogoJavascript } from 'react-icons/bi';
 import { FaReact } from 'react-icons/fa';
@@ -10,8 +10,15 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
+import useSWR from 'swr';
 
-const Experience = ({skills}) => {
+const Experience = () => {
+  const fetcher = (url) => fetch(url,{cache:"no-store"}).then((res) => res.json());
+  const { data } = useSWR('/api/skills', fetcher);
+  // useEffect(() => {
+  //   mutate();
+  // }, [mutate]);
+
   const experience = [
     {
       id: 1,
@@ -89,7 +96,7 @@ const Experience = ({skills}) => {
   return (
     <section className="w-full flex items-center justify-center">
       <VerticalTimeline>
-        {skills?.map((item) => (
+        {data?.map((item) => (
           <VerticalTimelineElement
             key={item.id}
             className="react-vertical-timeline-component"

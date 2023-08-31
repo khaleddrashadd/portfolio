@@ -9,11 +9,6 @@ import {
 
 const HomePage = async () => {
   const userData = await getUserData();
-  const bioData = {
-    bio: userData?.bio,
-    cv: userData?.cv,
-    img: userData?.imgUrl,
-  };
   const social = {
     whatsapp: userData?.socialMedia.whatsapp,
     linkedin: userData?.socialMedia.linkedin,
@@ -25,13 +20,11 @@ const HomePage = async () => {
   return (
     <>
       <Navbar
-        cv={userData?.cv}
-        name={userData?.name}
       />
       <main className="w-[80%] mt-4">
-        <Bio data={bioData} />
-        <Experience skills={userData?.skills} />
-        <Projects projects={userData?.projects} />
+        <Bio />
+        <Experience />
+        <Projects />
         <SocialMedia social={social} />
       </main>
     </>
