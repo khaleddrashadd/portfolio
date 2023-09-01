@@ -16,7 +16,7 @@ const SocialMedia = () => {
   const fetcher = (url) =>
     fetch(url, { cache: 'no-store' }).then((res) => res.json());
   const { data,isLoading } = useSWR('/api/social', fetcher);
-  
+
 const socialLinks = [
   {
     id: 1,
@@ -74,7 +74,6 @@ if (isLoading) {
         </div>
       </section>
     );}
-    console.log(data,'🤡')
     
 
   return (
