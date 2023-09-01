@@ -30,7 +30,6 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  const user = await currentUser();
 
   const skills = await prisma.skill.findMany({
     orderBy: {

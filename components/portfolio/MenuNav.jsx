@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import { IoMenu } from 'react-icons/io5';
@@ -10,9 +10,10 @@ import { navbarMenuVariant } from '@/lib/framer-motion/variants';
 const MenuNav = ({cv}) => {
   const [isActive, setIsActive] = useState(false);
   return (
-    <>
+    <AnimatePresence >
       <motion.div
         whileTap={{ scale: 0.6 }}
+        key='menu'
         className="block md:hidden  ml-auto cursor-pointer"
         onClick={() => setIsActive((prev) => !prev)}>
         <IoMenu className="text-2xl text-textBase " />
@@ -22,6 +23,7 @@ const MenuNav = ({cv}) => {
           initial="closed"
           animate="open"
           exit="exit"
+          key='menuNav'
           variants={navbarMenuVariant}
           className="p-4 w-275 bg-[#1d1e25] rounded-lg fixed top-24 right-16 flex flex-col items-center justify-evenly gap-6">
           {routes.map((route) => (
@@ -44,7 +46,7 @@ const MenuNav = ({cv}) => {
           </Link>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 export default MenuNav;

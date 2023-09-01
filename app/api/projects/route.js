@@ -31,7 +31,6 @@ export async function POST(req) {
 }
 
 export async function GET() {
-    const user = await currentUser();
 
   const projects = await prisma.project.findMany({
     orderBy: {

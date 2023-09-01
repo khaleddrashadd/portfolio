@@ -11,7 +11,11 @@ body {
   scroll-behavior: smooth;
   list-style: none;
   height: 100%;
-  @apply  bg-primary;
+  @apply bg-primary;
+}
+
+.unset {
+  position: unset !important;
 }
 
 /* ///////////////////////////////////////////////////////// */

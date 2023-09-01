@@ -4,12 +4,58 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoLogoGithub } from 'react-icons/io';
+import Skeleton from 'react-loading-skeleton';
 import useSWR from 'swr';
 
 const Projects = () => {
     const fetcher = (url) =>
       fetch(url, { cache: 'no-store' }).then((res) => res.json());
-    const { data } = useSWR('/api/projects', fetcher);
+    const { data,isLoading } = useSWR('/api/projects', fetcher);
+
+    if (isLoading) {
+      return (
+        <section
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-24"
+          id="projects">
+          <div className="border flex flex-col gap-4 border-zinc-800 rounded-md p-2 hover:border-zinc-600 duration-100 ease-in-out">
+            <Skeleton className="text-lg text-textBase font-medium uppercase" />
+            <div className="w-full relative aspect-square object-cover rounded-md my-4">
+              <Skeleton className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl" />
+            </div>
+            <div className="flex flex-1 items-center justify-between">
+              <Skeleton className="text-lg text-gray-300" />
+              <motion.div whileTap={{ scale: 0.5 }}>
+                <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
+              </motion.div>
+            </div>
+          </div>
+          <div className="border flex flex-col gap-4 border-zinc-800 rounded-md p-2 hover:border-zinc-600 duration-100 ease-in-out">
+            <Skeleton className="text-lg text-textBase font-medium uppercase" />
+            <div className="w-full relative aspect-square object-cover rounded-md my-4">
+              <Skeleton className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl" />
+            </div>
+            <div className="flex flex-1 items-center justify-between">
+              <Skeleton className="text-lg text-gray-300" />
+              <motion.div whileTap={{ scale: 0.5 }}>
+                <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
+              </motion.div>
+            </div>
+          </div>
+          <div className="border flex flex-col gap-4 border-zinc-800 rounded-md p-2 hover:border-zinc-600 duration-100 ease-in-out">
+            <Skeleton className="text-lg text-textBase font-medium uppercase" />
+            <div className="w-full relative aspect-square object-cover rounded-md my-4">
+              <Skeleton className="w-full h-full absolute -right-4 top-4 object-cover rounded-lg drop-shadow-2xl" />
+            </div>
+            <div className="flex flex-1 items-center justify-between">
+              <Skeleton className="text-lg text-gray-300" />
+              <motion.div whileTap={{ scale: 0.5 }}>
+                <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      );
+    }
 
   return (
     <section
@@ -25,12 +71,12 @@ const Projects = () => {
                 ? `${item.name.slice(0, 25)}...`
                 : item.name}
             </p>
-            <div className="w-full relative aspect-square object-cover rounded-md my-4">
+            <div className="w-full aspect-videoo relative object-cover rounded-md my-4">
               <Image
                 src={item?.imgUrl}
                 alt="project image"
                 fill
-                // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="unset"
               />
             </div>
             <div className="flex flex-1 items-center justify-between">

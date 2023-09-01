@@ -1,6 +1,7 @@
 import { Jost } from 'next/font/google';
 import '@/app/globals.css';
 import { Animate, SplineModel } from '@/components/portfolio';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const jost = Jost({ subsets: ['latin'] });
 
@@ -13,12 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jost.className}>
-        <Animate>
-          <SplineModel />
-          <div className="flex w-screen min-h-screen flex-col items-center justify-center relative bg-primary pb-20">
-            {children}
-          </div>
-        </Animate>
+        <SplineModel />
+        <div className="flex w-screen min-h-screen flex-col items-center justify-center relative bg-primary pb-20">
+          {children}
+        </div>
       </body>
     </html>
   );

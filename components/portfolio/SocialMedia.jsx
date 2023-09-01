@@ -7,12 +7,29 @@ import {
   IoLogoLinkedin,
   IoLogoWhatsapp,
 } from 'react-icons/io';
+import Skeleton from 'react-loading-skeleton';
 import useSWR from 'swr';
+
 
 const SocialMedia = () => {
   const fetcher = (url) =>
     fetch(url, { cache: 'no-store' }).then((res) => res.json());
-  const { data } = useSWR('/api/social', fetcher);
+  const { data,isLoading } = useSWR('/api/social', fetcher);
+
+  if (isLoading) {
+    return (
+      <section
+        id="contacts"
+        className="flex flex-col items-center justify-evenly w-full my-24">
+        <p className="text-2xl text-gray-400 capitalize">Follow me on</p>
+        <div className="flex items-center justify-evenly w-full my-4 flex-wrap gap-4">
+          <Skeleton className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3" />
+          <Skeleton className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3" />
+          <Skeleton className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3" />
+          <Skeleton className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-zinc-600 duration-100 ease-in-out cursor-pointer flex items-center justify-center gap-3" />
+        </div>
+      </section>
+    );}
 
   const socialLinks = [
     {
@@ -21,7 +38,7 @@ const SocialMedia = () => {
         <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
       ),
       name: 'GitHub',
-      link: data?.github || '',
+      link: data?.github ,
     },
     {
       id: 2,
@@ -29,7 +46,7 @@ const SocialMedia = () => {
         <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
       ),
       name: 'Twitter',
-      link: data?.x || '',
+      link: data?.x ,
     },
     {
       id: 3,
@@ -37,7 +54,7 @@ const SocialMedia = () => {
         <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
       ),
       name: 'LinkedIn',
-      link: data?.linkedin || '',
+      link: data?.linkedin ,
     },
     {
       id: 4,
@@ -45,7 +62,7 @@ const SocialMedia = () => {
         <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
       ),
       name: 'Whatsapp',
-      link: `tel:${data?.whatsapp}` || '',
+      link: `tel:${data?.whatsapp}` ,
     },
   ];
 
