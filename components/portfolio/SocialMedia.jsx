@@ -68,7 +68,7 @@ const SocialMedia = () => {
     {
       id: 5,
       iconSrc: (
-        <AiOutlineMail className="text-green-500 text-3xl cursor-pointer" />
+        <AiOutlineMail className="text-neutral-300 text-3xl cursor-pointer" />
       ),
       name: 'Email',
       link: data?.email,
