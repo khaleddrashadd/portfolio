@@ -71,7 +71,7 @@ const SocialMedia = () => {
         <AiOutlineMail className="text-neutral-300 text-3xl cursor-pointer" />
       ),
       name: 'Email',
-      link: data?.email,
+      link: `mailto:${data?.email}`,
     },
   ];
 
