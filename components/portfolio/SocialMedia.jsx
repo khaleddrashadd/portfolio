@@ -39,7 +39,7 @@ const SocialMedia = () => {
         <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
       ),
       name: 'GitHub',
-      link: data?.github,
+      link: data.github,
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ const SocialMedia = () => {
         <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
       ),
       name: 'Twitter',
-      link: data?.x,
+      link: data.x,
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ const SocialMedia = () => {
         <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
       ),
       name: 'LinkedIn',
-      link: data?.linkedin,
+      link: data.linkedin,
     },
     {
       id: 4,

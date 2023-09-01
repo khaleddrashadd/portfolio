@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-// import { useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import useSWR from 'swr';
 
@@ -9,9 +8,7 @@ const Bio = () => {
   const fetcher = (url) =>
     fetch(url, { cache: 'no-store' }).then((res) => res.json());
   const { data: userData, isLoading } = useSWR('/api/bio', fetcher);
-  // useEffect(() => {
-  //   mutate();
-  // }, [mutate]);
+
   if (isLoading) {
     return (
       <section
@@ -37,7 +34,7 @@ const Bio = () => {
       <div className="w-full h-420 flex items-center justify-center">
         <div className="w-275 h-340 relative bg-emerald-200 rounded-md">
           <Image
-            src={userData?.imgUrl}
+            src={userData.imgUrl}
             alt="personal image"
             width={275}
             height={340}
