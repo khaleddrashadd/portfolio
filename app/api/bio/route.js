@@ -26,10 +26,10 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  const user = await currentUser();
+  const [{id}] = await prisma.user.findMany();
   const userData = await prisma.user.findUnique({
     where: {
-      id: user.id,
+      id,
     },
     select: {
       bio: true,

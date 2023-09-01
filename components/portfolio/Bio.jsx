@@ -34,7 +34,7 @@ const Bio = () => {
       <div className="w-full h-420 flex items-center justify-center">
         <div className="w-275 h-340 relative bg-emerald-200 rounded-md">
           <Image
-            src={userData.imgUrl}
+            src={userData?.imgUrl}
             alt="personal image"
             width={275}
             height={340}

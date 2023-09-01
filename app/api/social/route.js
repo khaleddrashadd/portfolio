@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma/prismadb';
 
 export async function POST(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x, whatsapp,email } = body;
+  const { linkedin, facebook, github, x, whatsapp, email } = body;
 
   const user = await currentUser();
   if (!user) {
@@ -27,7 +27,7 @@ export async function POST(req) {
 
 export async function PATCH(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x, whatsapp,email } = body;
+  const { linkedin, facebook, github, x, whatsapp, email } = body;
 
   let query = {};
   if (linkedin) query.linkedin = linkedin;
@@ -52,10 +52,10 @@ export async function PATCH(req) {
 }
 
 export async function GET() {
-  const user = await currentUser();
+  const [{ id }] = await prisma.user.findMany();
   const social = await prisma.socialMedia.findUnique({
     where: {
-      userId: user.id,
+      userId: id,
     },
   });
   return NextResponse.json(social);
