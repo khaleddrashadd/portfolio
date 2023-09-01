@@ -1,8 +1,8 @@
 'use client';
 import 'react-vertical-timeline-component/style.min.css';
-// import { useEffect } from 'react';
 import { AiFillHtml5 } from 'react-icons/ai';
 import { BiLogoCss3, BiLogoVuejs, BiLogoJavascript } from 'react-icons/bi';
+import { DiSass } from 'react-icons/di';
 import { FaReact } from 'react-icons/fa';
 import { IoCodeWorking } from 'react-icons/io5';
 import { SiNextdotjs, SiTailwindcss } from 'react-icons/si';
@@ -17,9 +17,6 @@ const Skills = () => {
   const fetcher = (url) =>
     fetch(url, { cache: 'no-store' }).then((res) => res.json());
   const { data, isLoading } = useSWR('/api/skills', fetcher);
-  // useEffect(() => {
-  //   mutate();
-  // }, [mutate]);
 
   if (isLoading) {
     return (
@@ -47,13 +44,14 @@ const Skills = () => {
   }
 
   const skillsIcons = {
-    React: <FaReact />,
-    Next: <SiNextdotjs />,
-    Javascript: <BiLogoJavascript />,
-    Css: <BiLogoCss3 />,
-    Tailwind: <SiTailwindcss />,
-    Html: <AiFillHtml5 />,
-    Vue: <BiLogoVuejs />,
+    React: <FaReact color="#61DAFB" />,
+    Next: <SiNextdotjs color="#ffff" />,
+    Javascript: <BiLogoJavascript color="#F7DF1E" />,
+    Css: <BiLogoCss3 color="#264de4" />,
+    'Css Frameworks': <SiTailwindcss color="#61DAFB" />,
+    Html: <AiFillHtml5 color="#E34F26" />,
+    Vue: <BiLogoVuejs color="#4FC08D" />,
+    Sass: <DiSass color="#CC6699" />,
   };
 
   const skills = data?.map((item) => {

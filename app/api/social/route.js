@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma/prismadb';
 
 export async function POST(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x, whatsapp } = body;
+  const { linkedin, facebook, github, x, whatsapp,email } = body;
 
   const user = await currentUser();
   if (!user) {
@@ -16,6 +16,9 @@ export async function POST(req) {
       linkedin,
       facebook,
       github,
+      x,
+      whatsapp,
+      email,
       userId: user.id,
     },
   });
@@ -24,7 +27,7 @@ export async function POST(req) {
 
 export async function PATCH(req) {
   const body = await req.json();
-  const { linkedin, facebook, github, x, whatsapp } = body;
+  const { linkedin, facebook, github, x, whatsapp,email } = body;
 
   let query = {};
   if (linkedin) query.linkedin = linkedin;
@@ -32,6 +35,7 @@ export async function PATCH(req) {
   if (github) query.github = github;
   if (x) query.x = x;
   if (whatsapp) query.whatsapp = whatsapp;
+  if (email) query.email = email;
 
   const user = await currentUser();
   if (!user) {

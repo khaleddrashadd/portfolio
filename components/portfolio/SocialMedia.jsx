@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { AiOutlineMail } from 'react-icons/ai';
 import {
   IoLogoGithub,
   IoLogoTwitter,
@@ -38,7 +39,7 @@ const SocialMedia = () => {
         <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
       ),
       name: 'GitHub',
-      link: data?.github ,
+      link: data?.github,
     },
     {
       id: 2,
@@ -46,7 +47,7 @@ const SocialMedia = () => {
         <IoLogoTwitter className="text-blue-500 text-3xl cursor-pointer" />
       ),
       name: 'Twitter',
-      link: data?.x ,
+      link: data?.x,
     },
     {
       id: 3,
@@ -54,7 +55,7 @@ const SocialMedia = () => {
         <IoLogoLinkedin className="text-blue-800 text-3xl cursor-pointer" />
       ),
       name: 'LinkedIn',
-      link: data?.linkedin ,
+      link: data?.linkedin,
     },
     {
       id: 4,
@@ -62,7 +63,15 @@ const SocialMedia = () => {
         <IoLogoWhatsapp className="text-green-500 text-3xl cursor-pointer" />
       ),
       name: 'Whatsapp',
-      link: `tel:${data?.whatsapp}` ,
+      link: `tel:${data?.whatsapp}`,
+    },
+    {
+      id: 5,
+      iconSrc: (
+        <AiOutlineMail className="text-green-500 text-3xl cursor-pointer" />
+      ),
+      name: 'Email',
+      link: data?.email,
     },
   ];
 

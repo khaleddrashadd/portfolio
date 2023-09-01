@@ -1,6 +1,6 @@
 import { Jost } from 'next/font/google';
 import '@/app/globals.css';
-import { Animate, SplineModel } from '@/components/portfolio';
+import { SplineModel } from '@/components/portfolio';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 const jost = Jost({ subsets: ['latin'] });

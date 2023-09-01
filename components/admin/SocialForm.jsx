@@ -16,6 +16,7 @@ const SocialForm = () => {
     const facebook = data.facebook.value;
     const x = data.x.value;
     const whatsapp = data.whatsapp.value;
+    const email = data.email.value;
 
     if (!socialData) {
       const res = await fetch('/api/social', {
@@ -23,7 +24,7 @@ const SocialForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ linkedin, facebook, github, x,whatsapp }),
+        body: JSON.stringify({ linkedin, facebook,email, github, x,whatsapp }),
       });
       if (!res.ok) return toast.error('Something went wrong');
       toast.success('Social media links created successfully');
@@ -35,7 +36,7 @@ const SocialForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ linkedin, facebook, github, x,whatsapp }),
+      body: JSON.stringify({ linkedin, facebook, github,email, x,whatsapp }),
     });
     if (!res.ok) return toast.error('Something went wrong');
     toast.success('Social media links updated successfully');
@@ -76,6 +77,13 @@ const SocialForm = () => {
             className="text-gray-900"
             name="x"
             defaultValue={socialData?.x}
+          />
+          <Input
+            label="Email Address"
+            type="email"
+            className="text-gray-900"
+            name="email"
+            defaultValue={socialData?.email}
           />
           <Input
             label="Whatsapp Number"
