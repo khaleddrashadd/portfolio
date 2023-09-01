@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<div align="center">
+<img height="68" alt="Portfolio Logo" src="./app/favicon.ico"/>
+</div>
+<div align="center">
+  <h1 align="center">Khaled Rashad's Portfolio</h1>
+</div>
 
-## Getting Started
 
-First, run the development server:
+<a href="https://portfolio-khaled-jinx.vercel.app/">
+<div align="center">
+<img alt="khaled rashad portfolio" width="950" src="./public/portfolio.png"/>
+</div>
+</a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Introduction
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Personal Portfolio.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Main Technologies used
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<div>
+  <a href="https://portfolio-khaled-jinx.vercel.app/" target="_blank">
+    <img  alt="airbnb-clone-demo" height="35" src="./app/favicon.ico">
+  </a>
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+If you like my work, feel free to:
 
-## Deploy on Vercel
+- ⭐ this repository. It helps.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Create a bug report
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you see an error message or run into an issue, please [create bug report](https://github.com/khaleddrashadd/portfolio/issues). This effort is valued.
