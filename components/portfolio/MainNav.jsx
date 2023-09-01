@@ -13,8 +13,8 @@ const MainNav = ({cv}) => {
         </Link>
       ))}
       <Link
-        href={cv||''}
-        download="Example-PDF-document"
+        href={cv}
+        download="EKhaled Rashad Resume"
         target="_blank"
         rel="noreferrer"
         className="ml-auto text-base text-textBase font-medium hover:text-slate-100 cursor-pointer border border-textBase px-2 py-1 rounded-xl hover:border-gray-100 transition">
