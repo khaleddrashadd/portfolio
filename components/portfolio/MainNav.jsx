@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { routes } from '@/data/portfolio/routes';
 
-const MainNav = ({cv}) => {
+const MainNav = ({ cv }) => {
   return (
     <div className="hidden md:flex items-center gap-6 ml-6 flex-1">
       {routes.map((route) => (
@@ -13,7 +13,7 @@ const MainNav = ({cv}) => {
         </Link>
       ))}
       <Link
-        href={cv}
+        href={cv || ''}
         download="EKhaled Rashad Resume"
         target="_blank"
         rel="noreferrer"

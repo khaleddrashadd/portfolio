@@ -36,7 +36,7 @@ const MenuNav = ({ cv }) => {
             </Link>
           ))}
           <Link
-            href={cv}
+            href={cv || ''}
             download="Khaled Rashad Resume"
             target="_blank"
             rel="noreferrer"
