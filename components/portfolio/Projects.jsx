@@ -11,6 +11,7 @@ const Projects = () => {
     const fetcher = (url) =>
       fetch(url, { cache: 'no-store' }).then((res) => res.json());
     const { data,isLoading } = useSWR('/api/projects', fetcher);
+    console.log(data)
 
     if (isLoading) {
       return (
