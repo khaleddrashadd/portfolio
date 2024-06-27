@@ -59,7 +59,7 @@ const Skills = () => {
     return skillsIcons[item.title]
       ? {
           ...item,
-          iconsSrc: skillsIcons[item.title],
+          iconsSrc: skillsIcons[item.title?.toLowerCase()],
           date: item.dateRange,
         }
       : {
