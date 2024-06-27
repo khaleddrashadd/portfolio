@@ -11,8 +11,7 @@ const Projects = () => {
   const fetcher = (url) =>
   fetch(url, { cache: 'no-store' }).then((res) => res.json());
   const { data, isLoading } = useSWR('/api/projects', fetcher);
-  console.log(isLoading, 'projects');
-
+  
   if (isLoading) {
     return (
       <section
@@ -57,7 +56,8 @@ const Projects = () => {
       </section>
     );
   }
-
+  
+  console.log(data)
   return (
     <section
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 my-24"

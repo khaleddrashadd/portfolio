@@ -1,7 +1,12 @@
 'use client';
 import 'react-vertical-timeline-component/style.min.css';
 import { AiFillHtml5 } from 'react-icons/ai';
-import { BiLogoCss3, BiLogoVuejs, BiLogoJavascript } from 'react-icons/bi';
+import {
+  BiLogoCss3,
+  BiLogoVuejs,
+  BiLogoJavascript,
+  SiTypescript,
+} from 'react-icons/bi';
 import { DiSass } from 'react-icons/di';
 import { FaReact } from 'react-icons/fa';
 import { IoCodeWorking } from 'react-icons/io5';
@@ -52,6 +57,7 @@ const Skills = () => {
     Html: <AiFillHtml5 color="#E34F26" />,
     Vue: <BiLogoVuejs color="#4FC08D" />,
     Sass: <DiSass color="#CC6699" />,
+    Typescript: <SiTypescript color="#007ACC" />,
   };
 
   const skills = data?.map((item) => {
