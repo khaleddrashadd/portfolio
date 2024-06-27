@@ -44,22 +44,22 @@ const Skills = () => {
   }
 
   const skillsIcons = {
-    react: <FaReact color="#61DAFB" />,
-    next: <SiNextdotjs color="#ffff" />,
-    javascript: <BiLogoJavascript color="#F7DF1E" />,
-    css: <BiLogoCss3 color="#264de4" />,
+    React: <FaReact color="#61DAFB" />,
+    Next: <SiNextdotjs color="#ffff" />,
+    Javascript: <BiLogoJavascript color="#F7DF1E" />,
+    Css: <BiLogoCss3 color="#264de4" />,
     'Css Frameworks': <SiTailwindcss color="#61DAFB" />,
-    html: <AiFillHtml5 color="#E34F26" />,
-    vue: <BiLogoVuejs color="#4FC08D" />,
-    sass: <DiSass color="#CC6699" />,
-    typescript: <SiTypescript color="#007ACC" />,
+    Html: <AiFillHtml5 color="#E34F26" />,
+    Vue: <BiLogoVuejs color="#4FC08D" />,
+    Sass: <DiSass color="#CC6699" />,
+    TypeScript: <SiTypescript color="#007ACC" />,
   };
 
   const skills = data?.map((item) => {
     return skillsIcons[item.title]
       ? {
           ...item,
-          iconsSrc: skillsIcons[item.title?.toLowerCase()],
+          iconsSrc: skillsIcons[item.title],
           date: item.dateRange,
         }
       : {
